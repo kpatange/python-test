@@ -1,0 +1,23 @@
+# 1. First, create catalog-info.yaml in your repository root
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: my-python-service
+  description: My Python service description
+  annotations:
+    github.com/project-slug: kpatange/python-test
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - python
+    - service
+  links:
+    - url: https://github.com/kpatange/python-test
+      title: GitHub Repository
+      icon: github
+spec:
+  type: service
+  lifecycle: experimental
+  owner: team-name
+  system: my-system
+  providesApis:
+    - my-python-api
