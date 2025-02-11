@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edw-crossplane-edwteam-x-deployment
+  namespace: edw-crossplane
+  labels:
+    app: "edw-crossplane-edwteam-x"
+    backstage.io/kubernetes-id: "edw-crossplane-edwteam-x"
+    service: "edwteam-x"
+    system: "edw-crossplane"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "edw-crossplane-edwteam-x"
+      service: "edwteam-x"
+      system: "edw-crossplane"
+  template:
+    metadata:
+      labels:
+        app: "edw-crossplane-edwteam-x"
+        backstage.io/kubernetes-id: "edw-crossplane-edwteam-x"
+        service: "edwteam-x"
+        system: "edw-crossplane"
+    spec:
+      containers:
+        - name: edw-crossplane-edwteam-x
+          image: <your-dockerhub-username>/edw-crossplane-edwteam-x:0
+          ports:
+            - containerPort: 80
